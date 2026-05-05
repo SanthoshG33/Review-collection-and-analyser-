@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI';
+            background: #f4f7fb;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            width: 150px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .positive { background: green; }
+        .negative { background: red; }
+        .neutral { background: gray; }
+
+        .reviews {
+            margin-top: 30px;
+        }
+
+        .review {
+            background: white;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<h1>📊 Reputation Dashboard</h1>
+
+{% if query %}
+<h3 style="text-align:center;">Results for "{{query}}"</h3>
+{% endif %}
+
+<div class="stats">
+    <div class="card positive">Positive<br>{{positive}}</div>
+    <div class="card negative">Negative<br>{{negative}}</div>
+    <div class="card neutral">Neutral<br>{{neutral}}</div>
+</div>
+
+<div class="reviews">
+    {% for review in reviews %}
+    <div class="review">
+        <b>{{review.business_name}}</b><br>
+        {{review.review_text}}<br>
+        <i>{{review.sentiment}}</i>
+    </div>
+    {% endfor %}
+</div>
+
+<br>
+<div style="text-align:center;">
+    <a href="/">⬅ Back</a>
+</div>
+
+</body>
+</html>

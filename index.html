@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reputation Guardian</title>
+    <style>
+        body {
+            font-family: 'Segoe UI';
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .container {
+            background: white;
+            color: black;
+            padding: 30px;
+            border-radius: 15px;
+            width: 400px;
+            margin: auto;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        input, textarea {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #2a5298;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1e3c72;
+        }
+
+        a {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🛡 Reputation Guardian</h1>
+
+<div class="container">
+    <h2>Add Review</h2>
+    <form action="/submit" method="post">
+        <input type="text" name="business_name" placeholder="Business/Product Name" required><br>
+        <textarea name="review_text" placeholder="Write review..." required></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <hr>
+
+    <h2>Search Reviews</h2>
+    <form action="/dashboard" method="get">
+        <input type="text" name="query" placeholder="Enter business name">
+        <button type="submit">Search</button>
+    </form>
+
+    <br>
+    <a href="/dashboard">View All Reviews</a>
+</div>
+
+</body>
+</html>
